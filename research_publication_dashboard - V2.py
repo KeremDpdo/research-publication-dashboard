@@ -410,7 +410,7 @@ if uploaded_file_2023 is not None and uploaded_file_2024 is not None:
             top_pub_count = df[pub_types].sum().max()
             takeaways.append(f"- **Dominant Yayın Türü**: {pub_type_labels[top_pub_type]} ({top_pub_count} adet), toplam çıktının önemli bir kısmını oluşturuyor.")
             if high_impact_researchers / active_researchers > 0.5:
-                takeaways.append(f"- **Yüksek Etki Odağı**: Aktif araştırmacıların %{high_impact_researchers/active_researchers*100:.1f}'i Q1 veya Q2 makaleler üretiyor, yüksek etkili araştırmalara güçlü bir vurgu var.")
+                takeaways.append(f"- **Yüksek Etki Odağı**: Aktif araştırmacıların %{high_impact_researchers/active_researchers*100:.1f}'i Q1 veya Q2 makaleler üretiyor.")
             declining_faculties = df.groupby(['Faculty', 'Year'])['Total Publications'].sum().unstack().fillna(0).pipe(
                 lambda x: x[x['2024'] < x['2023'] * 0.8].index.tolist()
             )
